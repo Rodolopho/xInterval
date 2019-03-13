@@ -5,17 +5,13 @@ You should treat instance of xTimeout and xInterval as timeline, and you specify
 
 ## xInterval
 ForExample;
-```
-Syntax:- new xInterval(lengthInms);
-```
+
+Syntax:- new xInterval(maxtime);
+
 ```javascript
  var timeline=new xInterval(10000);//This timeline has a lenght of 10s
  timeline.at(1000,function(interval,setClock, clock){
  //doSomething in 1000ms
- //interval is instance of current setInterval.
- //clock is the current time 
- //setClock is a function that lets you to goback in timeline or go forth uisng setclock in this time line.
- // setClock(100); this will always loop form 100ms through 1000ms inside the time frame
  );
  timeline.at(2000,function(){//doSometing in 20000ms)
           .at(5000, doSomethingElse);
@@ -24,7 +20,7 @@ Syntax:- new xInterval(lengthInms);
   timeline.start();
           
 ```
-Incase of Interval , by deault in every 100ms , it will look for a action in the timeline, which means you should register you timeline callback in the time which is excaly divisible by 100, i.e 100,200,1100 e.t.c, by default any action kept in 1050 ms in time line will not work. for custom you can set the clock unit.
+Incase of Interval , by deault in every 100ms , it will look for a action in the timeline, which means you should register you timeline callback in the time which is exactly divisible by 100, i.e 100,200,1100 e.t.c,  Any action kept in ms like 1050 (which is multipication of 50 not 100) in timeline will not work. For custom, you can set the clock unit using setClockUnit(unit) method.
 ```
 var timeline2=new xInterval(10000, 3);
 timeline2.setClockUnit(50);
@@ -33,7 +29,7 @@ timeline2.setClockUnit(50);
 timeline2.at(1050,function(){});
 
 ```
-Also notice we have provide second arguments 3, which means the xnterval loop will be break  3 loops. You get 3 round;
+Also notice we have provide second arguments 3, which means the xnterval will break loop after  3 loops, otherwise it will continue looping unless stop by stop()/clear()/reset() methods.
 
 ### Controls for xInterval instance
 You can use play , pause, resume, forward, backward,reset, stop, and start  methods to control the motion on timeline.
@@ -50,15 +46,15 @@ tl.forward(300)// forward current time by 300ms
 ```
 
 ## xTimeout [extend setTimeout() features]
-Similary, we can use xTimeout(), constructor for timeline. Unlike, xInterval, here we provide action that is invoke in after ward system, for example,
+Similary, we can use xTimeout(), constructor for timeline. Unlike, xInterval, here we provide action that is invoke in afterward system, for example,
 Syntax:- new xTimeout(loops);// loops argument is optional 
 ```javascript
 	var tl=new xTimeout();
 	tl.after(300, function(){});//invoke this after 300ms
-	tl.after(300,function(){});//invokes this after 300ms preceding action
-	tl.after(300.function(){});//invoes this after 3000ms preceeding action.
+	tl.after(300,function(){});//after preceeding action it will take 300ms to invoke,
+	tl.after(300,function(){});//after preceeding action it will take 300ms to invoke,
 ```
-The xTimeout, timeline actions are realtive to each other, it follows FIFO rule. Every, The order in which we register action and time are important. First it precedeeing action will be invoked,then next action will take place after wating it given time, and so on.
+In xTimeout, timeline actions are realtive to each other, it follows FIFO rule. The order in which we register time-action is very important. First it precedeeing action will be invoked,then next action will take place after wating its turn, and so on.
 
 ### Controls for xTimeout instance
 Using play, pause, resume, stop, next, previous, first, last, clear, reset methods, the motion and action on the  timline can be effected.
@@ -77,7 +73,7 @@ tl.last()//goto last action
 ```
 
 ## Events
-You can also trigger a event handler for each 'before' ,'after' and 'on' event  for control action uisng event object.
+You can also trigger a event handler for each control either 'before' ,'after' or 'on' event for control action uisng event object.
 ```
 beforeplay, onplay,afterplay,onpause,beforepause, onpause, afterpause etc
 ```
