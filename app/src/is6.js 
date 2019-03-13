@@ -1,0 +1,181 @@
+//function to check fllowed by its variant to return default if its false
+
+//..Or(e,d); checks if return e if true else return default "d"; e.f numberOr(e,1); 
+// var is={
+//   Array:isArray,
+//   HTMLElement:isHTMLElement,
+//   Error:isError,
+//   Valid:isValid,
+//   Null:isNull,
+//   Undefined:isUndefined,
+//   String:isString,
+//   Number:isNumber;,
+//   Function:isFunction,
+//   Object:isObject,
+
+
+// };
+module.exports={
+ isArray:function(e) {
+  		return Object.prototype.toString.call(s) === '[object Array]';
+},
+ arrayOr:function(e,d){
+  return this.isArray(e)?e:d;
+},
+
+ isHTMLElement:function(e){
+  if(!e){return false;}
+    return !! e.nodeName;
+},
+ htmlElementOr:function(e,d){
+  return this.isHTMLElement(e)?e:d;
+},
+
+ isValid:function(e){
+  if(!this.isUndefined(e) && !this.isNull(e)) return true;
+  return false;
+},
+
+ validOr:function(e,d){
+ return this.isValid(e)?e:d;
+},
+
+ isError:function(e){
+     return Object.prototype.toString.call(e) === '[object Error]';
+},
+ errorOr(e,d){
+  return this.isError(e)?e:d;
+},
+
+
+ isUndefined:function(e){
+     return Object.prototype.toString.call(e) === '[object Undefined]';
+},
+ undefinedOr:function(e,d){
+  return this.isUndefined(e)?e:d;
+},
+
+
+ isNull:function(e){
+     return Object.prototype.toString.call(e) === '[object Null]';
+},
+ nullOr:function(e,d){
+  return this.isNull(e)?e:d;
+},
+
+
+ isMath:function(e){
+     return Object.prototype.toString.call(e) === '[object Math]';
+},
+ mathOr:function(e,d){
+  return this.isMath(e)?e:d;
+},
+
+
+ isObject:function(e){
+		 return Object.prototype.toString.call(e) === '[object Object]';
+},
+ objectOr:function(e,d){
+  return this.isObject(e)?e:d;
+},
+
+
+ isFunction:function(e){
+	return Object.prototype.toString.call(e) === '[object Function]';
+},
+ functionOr:function(e,d){
+  return this.isFunction(e)?e:d;
+},
+
+
+ isRegExp(e){
+	return Object.prototype.toString.call(e) === '[object RegExp]';
+},
+ regExpOr(e,d){
+  return this.isRegExp(e)?e:d;
+},
+
+
+ isString:function(e){
+	return Object.prototype.toString.call(e) === '[object String]';
+},
+ stringOr:function(e,d){
+  return this.isString(e)?e:d;
+},
+
+
+ isDate:function(e){
+	return Object.prototype.toString.call(e) === '[object Date]';
+},
+ dateOr:function(e,d){
+  return this.isDate(e)?e:d;
+},
+
+ isNegativeNumber:function(e){
+  if(Object.prototype.toString.call(e) !== '[object Number]') return false;
+  return 0>e; 
+},
+ negativeNumberOr:function(e,d){
+  return this.isNegativeNumber(e)?e:d;
+},
+ isPositiveNumber:function(e){
+  if(Object.prototype.toString.call(e) !== '[object Number]') return false;
+  return 0<=e; 
+},
+ postiveNumberOr:function(e,d){
+  return this.isPositiveNumber(e)?e:d;
+},
+ isNumber:function(e){
+	return Object.prototype.toString.call(e) === '[object Number]';
+},
+ numberOr(e,d){
+  return this.isNumber(e)?e:d;
+},
+ isBoolean:function(e){
+  return Object.prototype.toString.call(e) === '[object Boolean]';
+},
+ booleanOr:function(e,d){
+  return this.isBoolean(e)?e:d;
+},
+
+
+ isObjectNotEmpty:function(e){//only for object
+    if(!this.isObject(e)) return false;
+	return !! Object.keys(e).length;
+},
+ objectNotEmptyOr:function(e,d){
+  return this.isObjectNotEmpty(e)?e:d;
+},
+
+
+ isArgs:function(args){
+  return Object.prototype.toString.call(args) === "[object Arguments]";
+},
+ argsOr:function(e,d){
+  return this.isArgs(e)?e:d;
+},
+
+
+// function  isArgsTypeOf(data,test){// here we call this inside funtion where test is a isfunctiobn//it should test type of date from agruments
+//     if(isFunction(test) && isArgs(data) ){
+//       for (var i = 0; i < data.length; i++) {
+//         var check=test(data[i]);
+//         if(!check){return false;}
+//       }
+//       return true;
+//     }else{
+//       return false;
+//     }
+
+//   };
+  
+// ------------------------------------------------------------------------------------------------
+//DOM 
+isTextNode:function(e){
+  if(!this.isHTMLElement(e)) return false;
+  return e.nodeType===3;
+},
+textNodeOr:function(e,d){
+  return this.isTextNode(e)?e:d;
+},
+}//End of container object

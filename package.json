@@ -1,0 +1,33 @@
+{
+  "name": "xinterval",
+  "version": "1.0.1",
+  "description": "Extended Interval and Timeout features  for javascript, ",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha || true",
+    "build": "webpack",
+    "serve": "webpack-dev-server --open",
+    "watch": "webpack --watch"
+  },
+  "bugs": {
+    "url": "https://github.com/Rodolopho/xInterval/issues"
+  },
+  "keywords": [
+    "xInterval.js",
+    "xTimeout.js",
+    "Extended-",
+    "setTimeout-and-setInterval"
+  ],
+  "homepage": "https://github.com/Rodolopho/xInterval",
+  "author": "Bikram Thapa",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.*",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
