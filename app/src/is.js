@@ -109,7 +109,7 @@ function isPositiveNumber(e){
   if(Object.prototype.toString.call(e) !== '[object Number]') return false;
   return 0<=e; 
 };
-function npostiveNumberOr(e,d){
+function postiveNumberOr(e,d){
   return isPositiveNumber(e)?e:d;
 }
 function isNumber(e){

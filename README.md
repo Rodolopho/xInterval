@@ -5,22 +5,26 @@ You should treat instance of xTimeout and xInterval as timeline, and you specify
 
 ## xInterval
 ForExample;
-
-Syntax:- new xInterval(maxtime);
-
+```
+//Syntax:- 
+ let timeline= new xInterval(time,[number]);//time is ther length of timeline and loop is number of loops you want
+```
 ```javascript
  var timeline=new xInterval(10000);//This timeline has a lenght of 10s
  timeline.at(1000,function(interval,setClock, clock){
  //doSomething in 1000ms
+ 	}
  );
- timeline.at(2000,function(){//doSometing in 20000ms)
-          .at(5000, doSomethingElse);
+ timeline.at(2000,function(){
+ //doSometing in 2000ms)	
+ })
+ .at(5000, doSomethingElse());
           
   //to start time
   timeline.start();
           
 ```
-Incase of Interval , by deault in every 100ms , it will look for a action in the timeline, which means you should register you timeline callback in the time which is exactly divisible by 100, i.e 100,200,1100 e.t.c,  Any action kept in ms like 1050 (which is multipication of 50 not 100) in timeline will not work. For custom, you can set the clock unit using setClockUnit(unit) method.
+Incase of Interval , by deault in every 100ms it will look for a action in the timeline, which means you should register you timeline callback in the time which is exactly divisible by 100, i.e 100,200,1100 e.t.c,  Any action kept in ms like 1050 (which is multipication of 50 not 100) in timeline will not work. For custom, you can set the clock unit using setClockUnit(unit) method.
 ```
 var timeline2=new xInterval(10000, 3);
 timeline2.setClockUnit(50);
@@ -46,12 +50,12 @@ tl.forward(300)// forward current time by 300ms
 ```
 
 ## xTimeout [extend setTimeout() features]
-Similary, we can use xTimeout(), constructor for timeline. Unlike, xInterval, here we provide action that is invoke in afterward system, for example,
+Similar to xInterval we can use xTimeout(), constructor for timeline. Unlike, xInterval, here we provide action that is invoke in afterward system, for example,
 Syntax:- new xTimeout(loops);// loops argument is optional 
 ```javascript
 	var tl=new xTimeout();
 	tl.after(300, function(){});//invoke this after 300ms
-	tl.after(300,function(){});//after preceeding action it will take 300ms to invoke,
+	tl.after(700,function(){});//after preceeding action it will take 700ms to invoke,
 	tl.after(300,function(){});//after preceeding action it will take 300ms to invoke,
 ```
 In xTimeout, timeline actions are realtive to each other, it follows FIFO rule. The order in which we register time-action is very important. First it precedeeing action will be invoked,then next action will take place after wating its turn, and so on.
@@ -82,7 +86,7 @@ var tl=new xInterval(10000);
 tl.event.beforestart=function(instance){
 	//do something
 	//return false to stop the start() method to take place
-	},
+	};
 
 ```
 

@@ -382,78 +382,78 @@
 			},	
 
 
-			//Control bar for testing 
-			showUserControl:function(el){
-				var x=this;
-				var controlbox,play,pause,start,backward,forward,stop,restart,resume;
-				controlbox=document.createElement("button");
-				play=document.createElement("button");
-				play.textContent="play";
-				pause=document.createElement("button");
-				pause.textContent="pause";
-				resume=document.createElement("button");
-				resume.textContent="resume";
-				stop=document.createElement("button");
-				stop.textContent="stop";
-				start=document.createElement("button");
-				start.textContent="start";
-				backward=document.createElement("button");
-				backward.textContent="backward";
-				forward=document.createElement("button");
-				forward.textContent="forward";
-				clear=document.createElement("button");
-				clear.textContent="clear";
-				//--------------------------------
-				controlbox.append(play);
-				controlbox.append(pause);
-				controlbox.append(resume);
-				controlbox.append(stop);
-				controlbox.append(backward);
-				controlbox.append(forward);
-				controlbox.append(start);
-				controlbox.append(clear);
-				//-----------------------------------
-				controlbox.style.position="absolute";
-				controlbox.style.zIndex=100;
-				controlbox.style.bottom="5px";
-				controlbox.style.opacity="0.5";
-				//controlbox.style.position="absolute";
-				if(el){
-					el.append(controlbox);
-				}else{
-					document.body.append(controlbox);
-				}
+			// //Control bar for testing 
+			// showUserControl:function(el){
+			// 	var x=this;
+			// 	var controlbox,play,pause,start,backward,forward,stop,restart,resume;
+			// 	controlbox=document.createElement("button");
+			// 	play=document.createElement("button");
+			// 	play.textContent="play";
+			// 	pause=document.createElement("button");
+			// 	pause.textContent="pause";
+			// 	resume=document.createElement("button");
+			// 	resume.textContent="resume";
+			// 	stop=document.createElement("button");
+			// 	stop.textContent="stop";
+			// 	start=document.createElement("button");
+			// 	start.textContent="start";
+			// 	backward=document.createElement("button");
+			// 	backward.textContent="backward";
+			// 	forward=document.createElement("button");
+			// 	forward.textContent="forward";
+			// 	clear=document.createElement("button");
+			// 	clear.textContent="clear";
+			// 	//--------------------------------
+			// 	controlbox.append(play);
+			// 	controlbox.append(pause);
+			// 	controlbox.append(resume);
+			// 	controlbox.append(stop);
+			// 	controlbox.append(backward);
+			// 	controlbox.append(forward);
+			// 	controlbox.append(start);
+			// 	controlbox.append(clear);
+			// 	//-----------------------------------
+			// 	controlbox.style.position="absolute";
+			// 	controlbox.style.zIndex=100;
+			// 	controlbox.style.bottom="5px";
+			// 	controlbox.style.opacity="0.5";
+			// 	//controlbox.style.position="absolute";
+			// 	if(el){
+			// 		el.append(controlbox);
+			// 	}else{
+			// 		document.body.append(controlbox);
+			// 	}
 				
-				//---------------
+			// 	//---------------
 
 
-				play.onclick=function(){
-					x.resume();
-				};
-				pause.onclick=function(){
-					x.pause();
-				};
-				resume.onclick=function(){
-					x.resume();
-				};
-				stop.onclick=function(){
-					x.stop();
-				};
-				start.onclick=function(){
-					x.start();
-				};
-				backward.onclick=function(){
-					x.backward(500);
-				};
-				forward.onclick=function(){
-					x.forward(500);
-				};
-				clear.onclick=function(){
-					x.clear();
-				};
-				//return the controlbox for user to modify HTML ELEment
-				return controlbox;
-			},	
+			// 	play.onclick=function(){
+			// 		x.resume();
+			// 	};
+			// 	pause.onclick=function(){
+			// 		x.pause();
+			// 	};
+			// 	resume.onclick=function(){
+			// 		x.resume();
+			// 	};
+			// 	stop.onclick=function(){
+			// 		x.stop();
+			// 	};
+			// 	start.onclick=function(){
+			// 		x.start();
+			// 	};
+			// 	backward.onclick=function(){
+			// 		x.backward(500);
+			// 	};
+			// 	forward.onclick=function(){
+			// 		x.forward(500);
+			// 	};
+			// 	clear.onclick=function(){
+			// 		x.clear();
+			// 	};
+			// 	//return the controlbox for user to modify HTML ELEment
+			// 	return controlbox;
+			// },	
 	};//End of prototype
 
 
