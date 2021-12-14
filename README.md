@@ -7,7 +7,7 @@ You should treat instance of xTimeout and xInterval as timeline, and you specify
 ForExample;
 ```
 //Syntax:- 
- let timeline= new xInterval(time,[number]);//time is ther length of timeline and loop is number of loops you want
+ let timeline= new xInterval(time,[number]);//time is the length of timeline and loop is number of loops you want
 ```
 ```javascript
  var timeline=new xInterval(10000);//This timeline has a lenght of 10s
